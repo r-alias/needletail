@@ -1,9 +1,9 @@
 {
-  "name": "wotweet",
-  "version": "0.0.0",
-  "author": "",
-  "description": "Write-only twitter client",
-  "license": null,
+  "name": "needletail",
+  "version": "0.0.1",
+  "author": "r-alias",
+  "description": "Simple twitter client with screenshot function.",
+  "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
@@ -23,7 +23,7 @@
     "postinstall": "npm run lint:fix"
   },
   "build": {
-    "productName": "wotweet",
+    "productName": "needletail",
     "appId": "org.simulatedgreg.electron-vue",
     "directories": {
       "output": "build"

@@ -1,6 +1,6 @@
 # Needletail
 
-> Simple twitter client with screenshot.
+> Simple twitter client with screenshot function.
 
 #### Build Setup
 

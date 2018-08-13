@@ -3,10 +3,9 @@ import Twitter from 'twitter'
 import OauthTwitter from 'electron-oauth-twitter'
 import Config from 'electron-config'
 import fs from 'fs'
+import {consumerKey, consumerSecret} from './settings/twitterSettings'
 
-const consumerKey = 'RhJQkLyWCE4vaOzsIDLoKHCo9'
-const consumerSecret = 'q2nvEtLIHlG7rolbHYqmpUaFusjfq4kNtJQgaTzlqS6GNSr5A1'
-const config = new Config({name: 'wom'})
+const config = new Config({name: 'needletail'})
 let accessTokenKey = config.get('accessTokenKey', '')
 let accessTokenSecret = config.get('accessTokenSecret', '')
 let accountName = config.get('accountName', '')

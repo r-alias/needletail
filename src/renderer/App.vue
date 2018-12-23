@@ -2,7 +2,7 @@
   <div id="app">
     <div class="column" :style="styleMain">
       <main-page v-if="state===0" :width="width" :height="height" :tweeting='tweeting' @submit="onSubmit"></main-page>
-      <setting-page v-else :alwaysOnTopParent="alwaysOnTop" @set-always-on-top="setAlwaysOnTop"></setting-page>
+      <setting-page v-else :alwaysOnTopParent="alwaysOnTop" @set-always-on-top="setAlwaysOnTop" :is-auth="isAuth" :user-name="userName"></setting-page>
     </div>
     <NaviBar @state-change="onSetting()" @screen-shot="onScreenShot()" @show-attachment="onClickAttachment" :attachments="attachments"></NaviBar>
   </div>

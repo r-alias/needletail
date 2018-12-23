@@ -27,34 +27,31 @@
 <script>
   export default {
     name: 'main-page',
-    props: ['alwaysOnTopParent'],
+    props: ['alwaysOnTopParent', 'userName', 'isAuth'],
     data () {
       return {
-        authState: '',
-        userName: '',
         alwaysOnTop: false
       }
     },
     methods: {
       authenticate () {
-        this.$electron.ipcRenderer.send('twitter-authenticate')
         this.$electron.ipcRenderer.removeAllListeners('res-twitter-authenticate')
         this.$electron.ipcRenderer.on('res-twitter-authenticate', (event, args) => {
           console.log('res-twitter-authenticate')
           this.$electron.ipcRenderer.send('twitter-getSetting')
         })
+        this.$electron.ipcRenderer.send('twitter-authenticate')
+      }
+    },
+    computed: {
+      authState () {
+        return this.isAuth ? 'authenticated' : 'none'
       }
     },
     created () {
       this.alwaysOnTop = this.alwaysOnTopParent
       // get authenticate info
       this.$electron.ipcRenderer.send('twitter-getSetting')
-      this.$electron.ipcRenderer.removeAllListeners('res-twitter-getSetting')
-      this.$electron.ipcRenderer.on('res-twitter-getSetting', (event, args) => {
-        console.log('res-twitter-getSetting')
-        this.authState = args.isAuth ? 'authenticated' : 'none'
-        this.userName = args.userName
-      })
     }
   }
 </script>

@@ -4,7 +4,7 @@
       <div class="column"></div>
       <div class="column is-half-mobile is-two-fifths-tablet">
         Authentication
-        <button class="tag" @click="authenticate">Auth</button>
+        <button class="tag nodrag" @click="authenticate">Auth</button>
       </div>
       <div class="column is-one-third-mobile">
         {{authState}}:{{userName}}
@@ -16,7 +16,7 @@
       <div class="column is-half-mobile is-two-fifths-tablet">
         Always on top
       </div>
-      <div class="column is-one-third-mobile">
+      <div class="column is-one-third-mobile nodrag">
         <input type="checkbox" v-model="alwaysOnTop" @click="$emit('set-always-on-top',!alwaysOnTop)">
       </div>
       <div class="column"></div>
@@ -59,9 +59,7 @@
   }
 </script>
 <style>
-textarea {
-  border: 1px solid;
-  border-radius: 1em;
-  font-size: 1em;
+.nodrag {
+  -webkit-app-region:no-drag
 }
 </style>
